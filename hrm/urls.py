@@ -6,8 +6,7 @@ app_name = 'hrm'
 urlpatterns = [
     path('login/', views.LoginView.as_view(), name="login"),
     path('user/', views.UserListView.as_view(), name="list_user"),
-    # path('user/', views.UserCreateView.as_view(), name="create_user"),
-    # phai phan biet url
+    path('user/create', views.UserCreateView.as_view(), name="create_user"),
     path('user/<str:pk>/', views.UserUpdateView.as_view(), name="update_user"),
-    path('user/<str:pk>/delete', views.UserDeleteView.as_view(), name="delete_user"),
+    path('user/delete/<str:pk>/', views.UserDeleteView.as_view(), name="delete_user"),
 ]

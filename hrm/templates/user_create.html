@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Update user{% endblock title %}
+{% block title %}Add user{% endblock title %}
 
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="err-msg"></div>
-            <form action="{% url 'hrm:update_user' pk=user.id %}" method="POST">
+            <form action="{% url 'hrm:create_user' %}" method="POST">
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="form-group">
@@ -15,7 +14,7 @@
                     </div>
                 {% endfor %}
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>

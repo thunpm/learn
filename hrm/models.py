@@ -5,9 +5,9 @@ from django.contrib.auth.hashers import make_password
 
 class User(models.Model):
     GENDER = [
-        ('N', 'Nam'),
-        ('Nu', 'Nu'),
-        ('K', 'Khac'),
+        ('M', 'Nam'),
+        ('W', 'Nu'),
+        ('O', 'Khac'),
     ]
     ROLE = [
         ('AD', 'Admin'),
@@ -17,7 +17,7 @@ class User(models.Model):
         primary_key=True, default=uuid.uuid4, editable=False, unique=True
     )
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=60)
+    password = models.CharField(max_length=60, default=make_password('1234', salt=None))
     name = models.CharField(max_length=60)
     gender = models.CharField(max_length=10, choices=GENDER)
     address = models.TextField()
